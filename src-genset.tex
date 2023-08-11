@@ -1,0 +1,124 @@
+Let us start with the general setting for particle annihilation and creation in two dimensions. The one-particle Hilbert space is chosen to be $\mathcal{H} := L^{2}(\mathbb{R}^{2}) := L^{2}(\mathbb{R}^{2},\mathbb{C})$. By $\mathcal{H}^{n} := \mathrm{Sym}\mathcal{H}^{\otimes n}$ ($n \in \mathbb{N}$) we denote its $n$-fold symmetric tensor product, i.e. the set of all elements of the $n$-fold tensor product that are symmetric under permutation of the factors. $\mathcal{H}^{n}$ can be identified with the set of the elements of $L^{2}(\mathbb{R}^{2n})$ that are symmetric under the permutations of the arguments $x_{1},\dots,x_{n} \in \mathbb{R}^{2}$. For the induced scalar product on this space we write $(\cdot \vert \cdot)_{n}$. With $\mathcal{H}^{0} := \mathbb{C}$ the symmetric\footnote{We restrain ourselves here to the symmetric Fock space which is also called bosonic Fock space. The anti-symmetric, or fermionic, Fock space would be obtained by using anti-symmetric tensor products.} Fock space $\mathcal{F}$ over $\mathcal{H}$ is the Hilbert space completion of the algebraic direct sum
+\begin{align*}
+  \bigoplus_{n = 0}^{\infty}
+  \mathcal{H}^{n}
+\end{align*}
+with respect to the norm $\Vert \cdot \Vert_{\mathcal{F}}$ given below. $\mathcal{H}^{n}$ is called the $n$-particle sector or just the $n$-th sector. $\mathcal{F}$ consists of all $\psi = (\psi^{0},\psi^{1},\psi^{2},\dots) \in \bigoplus_{n = 0}^{\infty}\mathcal{H}^{n}$ such that the norm defined by
+\begin{align*}
+  \Vert \psi \Vert_{\mathcal{F}}^{2}
+  &:=
+  \sum_{n = 0}^{\infty}
+  \left(
+      \psi^{n}
+    \vert
+      \psi^{n}
+  \right)_{n}
+\end{align*}
+is finite $\Vert \psi \Vert_{\mathcal{F}} < \infty$. This norm is induced by the scalar product given by
+\begin{align*}
+  \left(
+      \psi
+    \vert
+      \phi
+  \right)_{\mathcal{F}}
+  &:=
+  \sum_{n = 0}^{\infty}
+  \left(
+      \psi^{n}
+    \vert
+      \phi^{n}
+  \right)_{n}
+\end{align*}
+for $\psi,\phi \in \mathcal{F}$. We also define the truncated Fock space $\mathcal{F}_{N} \subset \mathcal{F}$ as the identification of the finite sum $\bigoplus_{n = 0}^{N}\mathcal{H}^{n}$, that is the elements of Fock space that vanish in all sectors with $n > N$. This is the space for describing situations with at most $N \in \mathbb{N}^{\times}$ particles.
+\\
+We define\footnote{for more about this notation see e.g. \cite{7f9f7f95}} $\mathrm{d}\Gamma(T)$ (with an appropriate domain on $\mathcal{F}$) for a densely defined operator $T$ on $\mathcal{H}$ as the operator whose action in the $n$-th sector is given by
+\begin{align*}
+  (\mathrm{d}\Gamma(T)\psi)^{n}
+  &:=
+  \sum_{j = 1}^{n}
+  T_{j}
+  \psi^{n}
+  \,.
+\end{align*}
+where
+\begin{align*}
+  T_{j}
+  =
+  \mathrm{id}_{\mathcal{H}}
+  \otimes
+  \dots
+  \otimes
+  T
+  \otimes
+  \dots
+  \otimes
+  \mathrm{id}_{\mathcal{H}}
+\end{align*}
+is $T$ acting on the $j$-th factor.
+\\
+In suitable units the free one-particle Hamilton operator is given by the Laplace operator $h_{0} := -\Delta$ with the second Sobolev space $H^{2}(\mathbb{R}^{2})$ as domain. Now the Hamilton operator we want to examine should allow for particle annihilation and creation. For this reason we define the densely defined annihilation operator $a(\chi)$ on $\mathcal{F}$, that annihilates particles with wave function $\chi \in \mathcal{H}$, sector-wise by
+\begin{align*}
+  (a(\chi)\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  \sqrt{n + 1}
+  \int_{\mathbb{R}^{2}}
+  \overline{\chi(x)}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    x
+  \right)
+  \mathrm{d}x
+  \,.
+\end{align*}
+The also densely defined creation operator is its adjoint and is given by
+\begin{align*}
+  (a^{\ast}(\chi)\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  \frac{1}{\sqrt{n}}
+  \sum_{j = 1}^{n}
+  \chi(x_{j})
+  \psi^{n - 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    \hat{x}_{j}
+    ,
+    \dots,x_{n}
+  \right)
+\end{align*}
+for $n \in \mathbb{N}^{\times}$, where $\hat{x}_{j}$ denotes the omission of the $j$-th argument, and $(a^{\ast}(\chi)\psi)^{0} := 0$. With this we can define a Hamilton operator
+\begin{align}
+\label{hamchi}
+  H_{\chi}
+  &:=
+  \mathrm{d}\Gamma(h_{0})
+  +
+  \overline{c}
+  a(\chi)
+  +
+  c
+  a^{\ast}(\chi)
+\end{align}
+where $c \in \mathbb{C}$ is a coupling constant. Sometimes we will also write $-\Delta^{\mathcal{F}} := \mathrm{d}\Gamma(h_{0})$ calling $\Delta^{\mathcal{F}}$ the Laplace operator on Fock space. Now we would like to have a Hamilton operator that describes particle annihilation and creation at a point source $y \in \mathbb{R}^{2}$ in space, i.e. we wish to take the limit $\chi \to \delta$, where $\delta \in \mathcal{D}^{\prime}(\mathbb{R}^{2})$ is the Dirac $\delta$-distribution\footnote{for more about distributions see e.g. \cite{0b69015e}}. Here $\mathcal{D}(\mathbb{R}^{2})$ is the space of the smooth and compactly supported functions on $\mathbb{R}^{2}$ and we define $\delta_{y} \colon \phi \mapsto \phi(y)$ for $\phi \in \mathcal{D}(\mathbb{R}^{2})$, i.e. $\delta = \delta_{0}$. Unfortunately taking this limit is only possible using a renormalization procedure since we cannot give $a^{\ast}(\delta)$ mathematical sense as a densly defined operator\footnote{For $a(\delta)$ we can simply define $(a(\delta)\psi)^{n}(x_{1},\dots,x_{n}) := \sqrt{n + 1}\psi^{n + 1}(x_{1},\dots,x_{n},0)$.}. This means the formal expression $H_{\delta_{y}}$ defined as in \eqref{hamchi} is not well-defined. A common renormalization procedure for the problem here basically is the following (see. e.g. \cite{7f9f7f95} or the references therein for a more detailed discussion): The formal Hamilton operator $H_{\delta}$ is approximated by regularized Hamilton operators $H_{\chi_{n}}$, where $\chi_{n} \in L^{2}(\mathbb{R}^{2})$ is such that $\chi_{n}$ converges to $\delta$ in an appropriate sense as $n \to \infty$. Then a suitable sequence $E_{n}$ of constants, that goes to infinity as $n \to \infty$, has to be found, such that $H_{\chi_{n}} - E_{n}$ has a limit in the strong resolvent sense. This limit $H_{\infty}$ is then called the renormalized Hamilton operator. In order for this to work out, a positive constant has to be added to $h_{0}$ (cf. also section \ref{subsec:grffsp}). But we will forgo this for the following motivation.

@@ -1,0 +1,750 @@
+The purpose of this section is to extend our model to the case of more than one source and examine what the ground state and especially the ground state energy look like. We start out with two sources but this case can easily be generalized to the case of any finite number of sources. We choose one source to be placed at the origin and the other one to be placed at $y_{0} \in \mathbb{R}^{2}$. The annihilation at these sources is described by the two operators $\mathcal{A}_{1},\mathcal{A}_{2}$, which we define, on appropriate domains, sector-wise by
+\begin{align*}
+  (\mathcal{A}_{1}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  -
+  \frac{\sqrt{n + 1}}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+\end{align*}
+and
+\begin{align*}
+  (\mathcal{A}_{2}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  -
+  \frac{\sqrt{n + 1}}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y_{0}
+    +
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  \,.
+\end{align*}
+To state the two corresponding IBCs for the sources, we define the operators $\mathcal{B}_{1},\mathcal{B}_{2}$, again on appropriate domains, sector-wise by
+\begin{align*}
+  (\mathcal{B}_{1}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  2\pi
+  \sqrt{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    r\varphi
+  \right)
+\end{align*}
+and
+\begin{align*}
+  (\mathcal{B}_{2}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  2\pi
+  \sqrt{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y_{0}
+    +
+    r\varphi
+  \right)
+  \,.
+\end{align*}
+\\
+The model then reads
+\begin{align*}
+  H
+  &=
+  \mathrm{d}\Gamma(h)
+  +
+  \overline{c}_{1}
+  \mathcal{A}_{1}
+  +
+  \overline{c}_{2}
+  \mathcal{A}_{2}
+  \qquad
+  \text{with IBCs}
+  \qquad
+  \mathcal{B}_{1}\psi
+  =
+  c_{1}\psi
+  \quad
+  \text{and}
+  \quad
+  \mathcal{B}_{2}\psi
+  =
+  c_{2}\psi
+  \,,
+\end{align*}
+where we have two coupling constants $c_{1},c_{2} \in \mathbb{C}$. The domain $D_{\textrm{IBC}}$ of $H$ has to be adapted properly. We can think of the sources as particles pinned at their positions that interact via the dynamical particles in the model. The different coupling constants can then be interpreted as charges of the pinned particles, reflecting the possibly different types of the particles. The ground state energy can be seen as an effective potential between the charges due to the exchange of the dynamical particles.
+\\
+As an ansatz for the ground state we use a sum of two $K_{0}$-functions for each particle and therefore write in the $n$-particle sector
+\begin{align*}
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &=
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n}
+  \prod_{j = 1}^{n}
+  \left(
+    c_{1}
+    B_{1}
+    f_{\kappa,0}(x_{j})
+    +
+    c_{2}
+    B_{2}
+    f_{\kappa,y_{0}}(x_{j})
+  \right)
+  \,,
+\end{align*}
+where $A,B_{1},B_{2} \in \mathbb{C}^{\times}$ and $\kappa > 0$. Using that $K_{0}$ is continuous away from $0 \in \mathbb{R}^{2}$ we have for the first IBC
+\begin{align*}
+  &
+  (\mathcal{B}_{1}\psi_{g})^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \\
+  &=
+  2\pi
+  \sqrt{n + 1}
+  A
+  \frac{1}{\sqrt{(n + 1)!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \left(
+    c_{1}
+    B_{1}
+    K_{0}(\kappa r)
+    +
+    c_{2}
+    B_{2}
+    K_{0}
+    \left(
+      \kappa
+      \Vert r\varphi - y_{0} \Vert
+    \right)
+  \right)
+  \\
+  &\phantom{=\ }
+  \prod_{j = 1}^{n}
+  \left(
+    c_{1}
+    B_{1}
+    f_{\kappa,0}(x_{j})
+    +
+    c_{2}
+    B_{2}
+    f_{\kappa,y_{0}}(x_{j})
+  \right)
+  \\
+  &=
+  -
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n}
+  \left(
+    -
+    c_{1}
+    B_{1}
+    +
+    0
+  \right)
+  \prod_{j = 1}^{n}
+  \left(
+    c_{1}
+    B_{1}
+    f_{\kappa,0}(x_{j})
+    +
+    c_{2}
+    B_{2}
+    f_{\kappa,y_{0}}(x_{j})
+  \right)
+  \\
+  &=
+  c_{1}
+  B_{1}
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \,,
+\end{align*}
+and hence conclude $B_{1} = 1$. Similarly, we have for the second IBC
+\begin{align*}
+  &
+  (\mathcal{B}_{2}\psi_{g})^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \\
+  &=
+  2\pi
+  \sqrt{n + 1}
+  A
+  \frac{1}{\sqrt{(n + 1)!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \left(
+    c_{1}
+    B_{1}
+    K_{0}
+    \left(
+      \kappa
+      \Vert y_{0} + r\varphi \Vert
+    \right)
+    +
+    c_{2}
+    B_{2}
+    K_{0}(\kappa r)
+  \right)
+  \\
+  &\phantom{=\ }
+  \prod_{j = 1}^{n}
+  \left(
+    c_{1}
+    B_{1}
+    f_{\kappa,0}(x_{j})
+    +
+    c_{2}
+    B_{2}
+    f_{\kappa,y_{0}}(x_{j})
+  \right)
+  \\
+  &=
+  c_{2}
+  B_{2}
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \,,
+\end{align*}
+and conclude $B_{2} = 1$. The constant $A$ is determined by the normalization and shall not be calculated explicitly here.
+\\
+We now examine the individual terms of the Hamilton operator. Due to the linearity of the Laplace operator and since a translation does not change how the Laplace operator acts, we obtain, analogously to the case of one source, that
+\begin{align*}
+  -
+  \sum_{j = 1}^{n}
+  \Delta_{j}
+  \psi_{g}^{n}
+  &=
+  -
+  \sum_{j = 1}^{n}
+  \kappa^{2}
+  \psi_{g}^{n}
+  =
+  -
+  n
+  \kappa^{2}
+  \psi_{g}^{n}
+  \,.
+\end{align*}
+Using that $K_{0}$ is continuously differentiable away from $0 \in \mathbb{R}^{2}$ we further have
+\begin{align*}
+  \overline{c}_{1}
+  (\mathcal{A}_{1}\psi_{g})^{n}
+  &=
+  -
+  \frac{\overline{c}_{1}}{2\pi}
+  \sqrt{n + 1}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S_{1}}
+  \psi_{g}^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  \\
+  &=
+  \frac{\overline{c}_{1}}{2\pi}
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \left(
+    c_{1}
+    K_{0}(\kappa r)
+    +
+    \frac{c_{2}}{2\pi}
+    \int_{S^{1}}
+    K_{0}
+    \left(
+      \kappa
+      \Vert r\varphi - y_{0} \Vert
+    \right)
+    \mathrm{d}\varphi
+  \right)
+  \\
+  &\phantom{=\ }
+  \prod_{j = 1}^{n}
+  \left(
+    c_{1}
+    f_{\kappa,0}(x_{j})
+    +
+    c_{2}
+    f_{\kappa,y_{0}}(x_{j})
+  \right)
+  \\
+  &=
+  -
+  \frac{\overline{c}_{1}}{2\pi}
+  \left(
+    c_{1}
+    \left(
+      -
+      \gamma
+      +
+      \ln(2)
+      -
+      \ln(\kappa)
+    \right)
+    +
+    c_{2}
+    K_{0}(\kappa\Vert y_{0} \Vert)
+  \right)
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \\
+  &=
+  \left(
+    \frac{\vert c_{1} \vert^{2}}{2\pi}
+    \left(
+      \gamma
+      -
+      \ln(2)
+      +
+      \ln(\kappa)
+    \right)
+    -
+    \frac{\overline{c}_{1}c_{2}}{2\pi}
+    K_{0}(\kappa\Vert y_{0} \Vert)
+  \right)
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+\end{align*}
+and analogously
+\begin{align*}
+  \overline{c}_{2}
+  (\mathcal{A}_{2}\psi_{g})^{n}
+  &=
+  -
+  \frac{\overline{c}_{2}}{2\pi}
+  \sqrt{n + 1}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi_{g}^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y_{0}
+    +
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  \\
+  &=
+  \frac{\overline{c}_{2}}{2\pi}
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \left(
+    \frac{c_{1}}{2\pi}
+    \int_{S^{1}}
+    K_{0}
+    \left(
+      \kappa
+      \Vert y_{0} + r\varphi \Vert
+    \right)
+    \mathrm{d}\varphi
+    +
+    c_{2}
+    K_{0}(\kappa r)
+  \right)
+  \\
+  &\phantom{=\ }
+  \prod_{j = 1}^{n}
+  \left(
+    c_{1}
+    f_{\kappa,0}(x_{j})
+    +
+    c_{2}
+    f_{\kappa,y_{0}}(x_{j})
+  \right)
+  \\
+  &=
+  -
+  \frac{\overline{c}_{2}}{2\pi}
+  \left(
+    c_{1}
+    K_{0}(\kappa\Vert y_{0} \Vert)
+    +
+    c_{2}
+    \left(
+      -
+      \gamma
+      +
+      \ln(2)
+      -
+      \ln(\kappa)
+    \right)
+  \right)
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \\
+  &=
+  \left(
+    \frac{\vert c_{2} \vert^{2}}{2\pi}
+    \left(
+      \gamma
+      -
+      \ln(2)
+      +
+      \ln(\kappa)
+    \right)
+    -
+    \frac{\overline{c}_{2}c_{1}}{2\pi}
+    K_{0}(\kappa\Vert y_{0} \Vert)
+  \right)
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \,.
+\end{align*}
+Altogether this yields
+\begin{align*}
+  (H\psi_{g})^{n}
+  &=
+  \left(
+    n
+    (E_{0} - \kappa^{2})
+    +
+    \frac{\vert c_{1} \vert^{2} + \vert c_{2} \vert^{2}}{2\pi}
+    \left(
+      \gamma
+      -
+      \ln(2)
+      +
+      \ln(\kappa)
+    \right)
+    -
+    \frac{\overline{c}_{1}c_{2} + \overline{c}_{2}c_{1}}{2\pi}
+    K_{0}(\kappa\Vert y_{0} \Vert)
+  \right)
+  \psi_{g}^{n}
+  \,.
+\end{align*}
+As before we conclude that $\kappa = \sqrt{E_{0}}$ and thus find that the energy of the ground state is given by
+\begin{align*}
+  E_{g}
+  &=
+  \frac{\vert c_{1} \vert^{2} + \vert c_{2} \vert^{2}}{2\pi}
+  \left(
+    \gamma
+    -
+    \ln(2)
+    +
+    \frac{1}{2}
+    \ln(E_{0})
+  \right)
+  -
+  \frac{\overline{c}_{1}c_{2} + \overline{c}_{2}c_{1}}{2\pi}
+  K_{0}
+  \left(
+    \sqrt{E_{0}}
+    \Vert y_{0} \Vert
+  \right)
+  \,.
+\end{align*}
+We see that for small distances between the sources, i.e. $R := \Vert y_{0} \Vert \downarrow 0$, the ground state energy behaves like $\ln(R)$ which is the behaviour of a two-dimensional\footnote{A corresponding result is obtained in the one-dimensional case.} Coulomb potential\footnote{i.e. the solution of the Poisson equation for a point source in two dimensions}
+\begin{align*}
+  E_{g}(R)
+  &\sim
+  \textrm{const.}
+  +
+  \frac{\overline{c}_{1}c_{2} + \overline{c}_{2}c_{1}}{2\pi}
+  \ln
+  \left(
+    \sqrt{E_{0}}
+    R
+  \right)
+  \qquad
+  (R \downarrow 0)
+  \,.
+\end{align*}
+For real charges $c_{1},c_{2} \in \mathbb{R}$ with the same sign the potential is attractive, for opposite signs it is repulsive, which is just the behaviour one would expect for a scalar field. Moreover, the prefactor is as expected for a two-dimensional Coulomb potential.
+\\
+The generalization for $N \in \mathbb{N}^{\times}$ sources at positions $y_{i} \in \mathbb{R}^{2}$ is straightforward. To this end let $i \in [1,N] \cap \mathbb{N}$. We define the $N$ operators $\mathcal{A}_{1},\dots,\mathcal{A}_{N}$ for the annihilation, on appropriate domains, sector-wise through
+\begin{align*}
+  (\mathcal{A}_{i}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  -
+  \frac{\sqrt{n + 1}}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y_{i}
+    +
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  \,,
+\end{align*}
+and the $N$ operators $\mathcal{B}_{1},\dots,\mathcal{B}_{N}$ for the IBCs, on appropriate domains, by
+\begin{align*}
+  (\mathcal{B}_{i}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  2\pi
+  \sqrt{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y_{i}
+    +
+    r\varphi
+  \right)
+  \,.
+\end{align*}
+We then have for the model
+\begin{align*}
+  H
+  &=
+  \mathrm{d}\Gamma(h)
+  +
+  \sum_{i = 1}^{N}
+  \overline{c}_{i}
+  \mathcal{A}_{i}
+  \qquad
+  \text{with IBCs}
+  \qquad
+  \mathcal{B}_{i}\psi
+  =
+  c_{i}\psi
+  \,,
+\end{align*}
+with $N$ coupling constants $c_{i} \in \mathbb{C}$ and a properly adapted domain $D_{\textrm{IBC}}$ for $H$. The ground state in the $n$-particle sector is given by
+\begin{align*}
+  \psi_{g}^{n}(x_{1},\dots,x_{n})
+  &=
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{1}{2\pi}
+  \right)^{n}
+  \prod_{j = 1}^{n}
+  \sum_{i = 1}^{N}
+  c_{i}
+  f_{\sqrt{E_{0}},y_{i}}(x_{j})
+  \,,
+\end{align*}
+where again $A \in \mathbb{C}^{\times}$ is determined by the normalization. The ground state energy can be written as
+\begin{align*}
+  E_{g}
+  &=
+  \left(
+    \gamma
+    -
+    \ln(2)
+    +
+    \frac{1}{2}
+    \ln(E_{0})
+  \right)
+  \sum_{i = 1}^{N}
+  \frac{\vert c_{i} \vert^{2}}{2\pi}
+  -
+  \sum_{\substack{i,j = 1 \\ i \neq j}}^{N}
+  \frac{\overline{c}_{i}c_{j}}{2\pi}
+  K_{0}
+  \left(
+    \sqrt{E_{0}}
+    \Vert y_{i} - y_{j} \Vert
+  \right)
+  \,.
+\end{align*}

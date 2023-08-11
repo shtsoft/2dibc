@@ -1,0 +1,1093 @@
+The intention of this last section is to show the symmetry of the Hamilton operator $H$ from section \ref{subsec:grffsp} (i.e. we again assume the presence of only one source at the origin) on a certain subset $D \subset D_{\textrm{IBC}}$ by an explicit calculation, using integration by parts. In this way this not possible for all functions in $D_{\textrm{IBC}}$ as, e.g., applying the Laplace operator in only one variable does not necessarily yield a square-integrable function. To accomplish it anyway, one has to resort to different means than explicit calculations. Therefore, we choose $D$ to be the set of all functions in $D_{\textrm{IBC}}$ that are sufficiently regular, to guarantee that the derivatives and integrations taken in the following are well-defined. For the rest of this section let $\phi,\psi \in D$.
+\\
+Due to the linearity of the scalar product and since the terms of $H$ are individually well-defined on $D_{\textrm{IBC}}$, we can analyse the symmetry of the terms individually. Now because $E_{0} \in \mathbb{R}$, the multiplication with $E_{0}$ is obviously symmetric. Let therefore $H_{0}$ denote the Hamilton operator where $E_{0} = 0$. In the zero-particle sector we find
+\begin{align*}
+  \left(
+      \phi^{0}
+    \vert
+      (H_{0}\psi)^{0}
+  \right)_{0}
+  &=
+  \overline{\phi^{0}}
+  (\overline{c}\mathcal{A}\psi)^{0}
+  \\
+  &=
+  \overline{\phi^{0}}
+  (\overline{c}\mathcal{A}\psi)^{0}
+  -
+  \overline{(\overline{c}\mathcal{A}\phi)^{0}}
+  \psi^{0}
+  +
+  \left(
+      (H_{0}\phi)^{0}
+    \vert
+      \psi^{0}
+  \right)_{0}
+  \,.
+\end{align*}
+For the $n$-particle sector with $n \geq 1$ we have
+\begin{align*}
+  &
+  \left(
+      \phi^{n}
+    \vert
+      (H_{0}\psi)^{n}
+  \right)_{n}
+  \\
+  &=
+  \int_{\mathbb{R}^{2n}}
+  \overline{\phi^{n}}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \left(
+    -
+    \Delta^{\mathcal{F}}
+    \psi
+    +
+    \overline{c}
+    \mathcal{A}
+    \psi
+  \right)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  -
+  \sum_{j = 1}^{n}
+  \int_{\mathbb{R}^{2n}}
+  \overline{\phi^{n}}(x_{1},\dots,x_{n})
+  \Delta_{j}
+  \psi^{n}(x_{1},\dots,x_{n})
+  \mathrm{d}^{2n}x
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2n}}
+  \overline{\phi^{n}}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \left(
+    \frac{\overline{c}\sqrt{n + 1}}{2\pi}
+    \lim_{r \downarrow 0}
+    r
+    \ln^{2}(r)
+    \int_{S^{1}}
+    \partial_{r}
+    \frac{1}{\ln(r)}
+    \psi^{n+1}(x_{1},\dots,x_{n},r\varphi)
+    \mathrm{d}\varphi
+  \right)
+  \mathrm{d}^{2n}x
+  \,.
+\end{align*}
+We use polar coordinates for the $j$-th argument and write $(\hat{x}_{j},r\varphi)$ for the whole argument then. Note that the angular part of the Laplace operator, for which we write $L_{j} = \left( \frac{1}{r^{2}}\Delta_{\varphi} \right)_{j}$, is symmetric for the considered $\phi,\psi$, as we assume that they are sufficiently regular away from $0$. To see this, one can simply parametrize in the integral over $S^{1}$ by
+\begin{align*}
+  \Phi
+  \colon
+  [0,2\pi]
+  \to
+  S^{1}
+  ,\quad
+  \theta
+  \mapsto
+  \Phi(\theta)
+  &=
+  (\cos(\theta),\sin(\theta))
+  \,.
+\end{align*}
+Then the angular part of the Laplace operator is given by $\frac{1}{r^{2}}\partial_{\theta}^{2}$ and integrating by parts twice yields for $j \in [1,n] \cap \mathbb{N}$ that
+\begin{align*}
+  &
+  -
+  \int_{\mathbb{R}^{2n}}
+  \overline{\phi^{n}}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  L_{j}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{0}^{\infty}
+  \int_{0}^{2\pi}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\Phi(\theta))
+  \frac{1}{r^{2}}
+  \partial_{\theta}^{2}
+  \psi^{n}(\hat{x}_{j},r\Phi(\theta))
+  \mathrm{d}\theta
+  \mathrm{d}r
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{0}^{\infty}
+  r
+  \frac{1}{r^{2}}
+  \left(
+    \overline{\phi^{n}}(\hat{x}_{j},r\Phi(\theta))
+    \partial_{\theta}
+    \psi^{n}(\hat{x}_{j},r\Phi(\theta))
+    \Big\vert_{0}^{2\pi}
+  \right)
+  \mathrm{d}r
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{0}^{\infty}
+  \int_{0}^{2\pi}
+  r
+  \frac{1}{r^{2}}
+  \left(
+    \partial_{\theta}
+    \overline{\phi^{n}}(\hat{x}_{j},r\Phi(\theta))
+  \right)
+  \partial_{\theta}
+  \psi^{n}(\hat{x}_{j},r\Phi(\theta))
+  \mathrm{d}\theta
+  \mathrm{d}r
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{0}^{\infty}
+  r
+  \frac{1}{r^{2}}
+  \left(
+    \left(
+      \partial_{\theta}
+      \overline{\phi^{n}}(\hat{x}_{j},r\Phi(\theta))
+    \right)
+    \psi^{n}(\hat{x}_{j},r\Phi(\theta))
+    \Big\vert_{0}^{2\pi}
+  \right)
+  \mathrm{d}r
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{0}^{\infty}
+  \int_{0}^{2\pi}
+  r
+  \frac{1}{r^{2}}
+  \left(
+    \partial_{\theta}^{2}
+    \overline{\phi^{n}}(\hat{x}_{j},r\Phi(\theta))
+  \right)
+  \psi^{n}(\hat{x}_{j},r\Phi(\theta))
+  \mathrm{d}\theta
+  \mathrm{d}r
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    L_{j}
+    \overline{\phi^{n}}(x_{1},\dots,x_{n})
+  \right)
+  \psi^{n}(x_{1},\dots,x_{n})
+  \mathrm{d}^{2n}x
+  \,,
+\end{align*}
+as $\Phi(0) = \Phi(2\pi)$ and $\partial_{\theta}\Phi(0) = \partial_{\theta}\Phi(2\pi)$.
+\\
+The interesting term is the term with the radial part of the Laplace operator. Remembering that $\phi^{n},\psi^{n}$ vanish sufficiently fast at infinity (i.e. the boundary terms where $r \to \infty$, vanish), we find for $j \in [1,n] \cap \mathbb{N}$ by integration by parts
+\begin{align*}
+  &
+  -
+  \int_{\mathbb{R}^{2n}}
+  \overline{\phi^{n}}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  (\Delta_{j} - L_{j})
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \left(
+    \partial_{r}^{2}
+    +
+    \frac{1}{r}
+    \partial_{r}
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}^{2}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}^{2}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    \partial_{r}
+    r
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \partial_{r}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \left(
+    \partial_{r}
+    r
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    \partial_{r}^{2}
+    r
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \left(
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    2
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+    +
+    r
+    \partial_{r}^{2}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  \left(
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \left(
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  r
+  \partial_{r}^{2}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \int_{0}^{\infty}
+  r
+  \left(
+    \frac{1}{r}
+    \partial_{r}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}r
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &=
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \frac{\ln(r)}{\ln(r)}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \partial_{r}
+  \frac{\ln(r)}{\ln(r)}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \left(
+    \partial_{r}
+    \frac{\ln(r)}{\ln(r)}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \frac{\ln(r)}{\ln(r)}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    (\Delta_{j} - L_{j})
+    \overline{\phi^{n}}
+    \left(
+      x_{1}
+      ,
+      \dots
+      ,
+      x_{n}
+    \right)
+  \right)
+  \psi^{n}(x_{1},\dots,x_{n})
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \frac{1}{\ln(r)}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  +
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \frac{1}{\ln(r)}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  r
+  \ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  \frac{1}{\ln(r)}
+  \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \lim_{r \downarrow 0}
+  \int_{\mathbb{R}^{2(n-1)}}
+  \int_{S^{1}}
+  r
+  \ln^{2}(r)
+  \left(
+    \partial_{r}
+    \frac{1}{\ln(r)}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+  \right)
+  \frac{1}{\ln(r)}
+  \psi^{n}(\hat{x}_{j},r\varphi)
+  \mathrm{d}\varphi
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    (\Delta_{j} - L_{j})
+    \overline{\phi^{n}}
+    \left(
+      x_{1}
+      ,
+      \dots
+      ,
+      x_{n}
+    \right)
+  \right)
+  \psi^{n}(x_{1},\dots,x_{n})
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  \int_{\mathbb{R}^{2(n-1)}}
+  \overline{\phi^{n-1}}(\hat{x}_{j})
+  \left(
+    \frac{\overline{c}}{2\pi\sqrt{n}}
+    \lim_{r \downarrow 0}
+    r
+    \ln^{2}(r)
+    \int_{S^{1}}
+    \partial_{r}
+    \frac{1}{\ln(r)}
+    \psi^{n}(\hat{x}_{j},r\varphi)
+    \mathrm{d}\varphi
+  \right)
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \left(
+    \frac{c}{2\pi\sqrt{n}}
+    \lim_{r \downarrow 0}
+    r
+    \ln^{2}(r)
+    \int_{S^{1}}
+    \partial_{r}
+    \frac{1}{\ln(r)}
+    \overline{\phi^{n}}(\hat{x}_{j},r\varphi)
+    \mathrm{d}\varphi
+  \right)
+  \psi^{n-1}(\hat{x}_{j})
+  \mathrm{d}^{2(n-1)}\hat{x}_{j}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    (\Delta_{j} - L_{j})
+    \overline{\phi^{n}}
+    \left(
+      x_{1}
+      ,
+      \dots
+      ,
+      x_{n}
+    \right)
+  \right)
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \,.
+\end{align*}
+In the last step we used the IBC and the symmetry of $\phi,\psi$ in their arguments in each sector. The latter property we use now to conclude that the first two terms after the last sign of equality do not depend on $j$, so that we can write $\hat{x}_{n}$ instead of $\hat{x}_{j}$ everywhere in these terms. From the above calculation it is hence immediate that
+\begin{align*}
+  &
+  -
+  \sum_{j = 1}^{n}
+  \int_{\mathbb{R}^{2n}}
+  \overline{\phi^{n}}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  (\Delta_{j} - L_{j})
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  \int_{\mathbb{R}^{2(n-1)}}
+  \overline{\phi^{n-1}}(\hat{x}_{n})
+  \left(
+    \frac{\overline{c}\sqrt{n}}{2\pi}
+    \lim_{r \downarrow 0}
+    r
+    \ln^{2}(r)
+    \int_{S^{1}}
+    \partial_{r}
+    \frac{1}{\ln(r)}
+    \psi^{n}(\hat{x}_{n},r\varphi)
+    \mathrm{d}\varphi
+  \right)
+  \mathrm{d}^{2(n-1)}\hat{x}_{n}
+  \\
+  &\phantom{=\ }
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \left(
+    \frac{c\sqrt{n}}{2\pi}
+    \lim_{r \downarrow 0}
+    r
+    \ln^{2}(r)
+    \int_{S^{1}}
+    \partial_{r}
+    \frac{1}{\ln(r)}
+    \overline{\phi^{n}}(\hat{x}_{n},r\varphi)
+    \mathrm{d}\varphi
+  \right)
+  \psi^{n-1}(\hat{x}_{n})
+  \mathrm{d}^{2(n-1)}\hat{x}_{n}
+  \\
+  &\phantom{=\ }
+  -
+  \sum_{j = 1}^{n}
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    (\Delta_{j} - L_{j})
+    \overline{\phi^{n}}
+    \left(
+      x_{1}
+      ,
+      \dots
+      ,
+      x_{n}
+    \right)
+  \right)
+  \psi^{n}(x_{1},\dots,x_{n})
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  -
+  \int_{\mathbb{R}^{2(n-1)}}
+  \overline{\phi^{n-1}}(\hat{x}_{n})
+  \overline{c}
+  \left(
+    \mathcal{A}
+    \psi
+  \right)^{n - 1}
+  (\hat{x}_{n})
+  \mathrm{d}^{2(n-1)}\hat{x}_{n}
+  +
+  \int_{\mathbb{R}^{2(n-1)}}
+  \overline{
+  \overline{c}
+  \left(
+    \mathcal{A}
+    \phi
+  \right)^{n - 1}
+  (\hat{x}_{n})
+  }
+  \psi^{n-1}(\hat{x}_{n})
+  \mathrm{d}^{2(n-1)}\hat{x}_{n}
+  \\
+  &\phantom{=\ }
+  -
+  \sum_{j = 1}^{n}
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    (\Delta_{j} - L_{j})
+    \overline{\phi^{n}}
+    \left(
+      x_{1}
+      ,
+      \dots
+      ,
+      x_{n}
+    \right)
+  \right)
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \\
+  &=
+  -
+  \left(
+      \phi^{n-1}
+    \big\vert
+      \overline{c}
+      \left(
+        \mathcal{A}
+        \psi
+      \right)^{n - 1}
+  \right)_{n - 1}
+  +
+  \left(
+      \overline{c}
+      \left(
+        \mathcal{A}
+        \phi
+      \right)^{n - 1}
+    \big\vert
+      \psi^{n - 1}
+  \right)_{n - 1}
+  \\
+  &\phantom{=\ }
+  -
+  \sum_{j = 1}^{n}
+  \int_{\mathbb{R}^{2n}}
+  \left(
+    (\Delta_{j} - L_{j})
+    \overline{\phi^{n}}
+    \left(
+      x_{1}
+      ,
+      \dots
+      ,
+      x_{n}
+    \right)
+  \right)
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}^{2n}x
+  \,.
+\end{align*}
+With the symmetry of $L_{j}$ thus follows
+\begin{align*}
+  \left(
+      \phi^{n}
+    \vert
+      (-\Delta^{\mathcal{F}}\psi)^{n}
+  \right)_{n}
+  &=
+  -
+  \left(
+      \phi^{n-1}
+    \big\vert
+      \overline{c}
+      \left(
+        \mathcal{A}
+        \psi
+      \right)^{n - 1}
+  \right)_{n - 1}
+  +
+  \left(
+      \overline{c}
+      \left(
+        \mathcal{A}
+        \phi
+      \right)^{n - 1}
+    \big\vert
+      \psi^{n - 1}
+  \right)_{n - 1}
+  +
+  \left(
+      (-\Delta^{\mathcal{F}}\phi)^{n}
+    \vert
+      \psi^{n}
+  \right)_{n}
+  \,.
+\end{align*}
+This, in a way, is a generalized integration-by-parts formula. The asymmetry of $H$ in each sector can hence be described in terms of the operator $\mathcal{A}$ and will cancel out by summing over all $n \in \mathbb{N}$. We calculate
+\begin{align*}
+  \left(
+      \phi
+    \vert
+      H
+      \psi
+  \right)_{\mathcal{F}}
+  &=
+  \left(
+      \phi
+    \vert
+      \mathrm{d}\Gamma(h)
+      \psi
+  \right)_{\mathcal{F}}
+  +
+  \left(
+      \phi
+    \vert
+      \overline{c}
+      \mathcal{A}
+      \psi
+  \right)_{\mathcal{F}}
+  \\
+  &=
+  \sum_{n \in \mathbb{N}^{\times}}
+  \left(
+      \phi^{n}
+    \vert
+      \left(
+        -
+        \Delta^{\mathcal{F}}
+        \psi
+      \right)^{n}
+  \right)_{n}
+  +
+  \left(
+      \phi
+    \vert
+      \mathrm{d}\Gamma(E_{0})
+      \psi
+  \right)_{\mathcal{F}}
+  +
+  \left(
+      \phi
+    \vert
+      \overline{c}
+      \mathcal{A}
+      \psi
+  \right)_{\mathcal{F}}
+  \\
+  &=
+  \sum_{n \in \mathbb{N}^{\times}}
+  \left(
+    \left(
+        \left(
+          -
+          \Delta^{\mathcal{F}}
+          \phi
+        \right)^{n}
+      \vert
+        \psi^{n}
+    \right)_{n}
+    -
+    \left(
+          \phi^{n-1}
+      \big\vert
+        \overline{c}
+        \left(
+          \mathcal{A}
+          \psi
+        \right)^{n - 1}
+    \right)_{n - 1}
+    +
+    \left(
+        \overline{c}
+        \left(
+          \mathcal{A}
+          \phi
+        \right)^{n - 1}
+      \big\vert
+        \psi^{n - 1}
+    \right)_{n - 1}
+  \right)
+  \\
+  &\phantom{=\ }
+  +
+  \left(
+      \mathrm{d}\Gamma(E_{0})
+      \phi
+    \vert
+      \psi
+  \right)_{\mathcal{F}}
+  +
+  \left(
+      \phi
+    \vert
+      \overline{c}
+      \mathcal{A}
+      \psi
+  \right)_{\mathcal{F}}
+  \\
+  &=
+  \left(
+      -
+      \Delta^{\mathcal{F}}
+      \phi
+    \vert
+      \psi
+  \right)_{\mathcal{F}}
+  -
+  \left(
+      \phi
+    \vert
+      \overline{c}
+      \mathcal{A}
+      \psi
+  \right)_{\mathcal{F}}
+  +
+  \left(
+      \overline{c}
+      \mathcal{A}
+      \phi
+    \vert
+      \psi
+  \right)_{\mathcal{F}}
+  +
+  \left(
+      \mathrm{d}\Gamma(E_{0})
+      \phi
+    \vert
+      \psi
+  \right)_{\mathcal{F}}
+  +
+  \left(
+      \phi
+    \vert
+      \overline{c}
+      \mathcal{A}\psi
+  \right)_{\mathcal{F}}
+  \\
+  &=
+  \left(
+      H
+      \phi
+    \vert
+      \psi
+  \right)_{\mathcal{F}}
+  \,.
+\end{align*}

@@ -1,0 +1,323 @@
+We now turn back to the full Fock space $\mathcal{F}$ to calculate the ground state there. In order to avoid the above-mentioned IR divergence in our model we add a positive constant $E_{0} > 0$, or more precisely the multiplication operator $M_{E_{0}}$, to the free one-particle Hamilton operator. Denoting the multiplication operator with $E_{0}$ as well, where the correct meaning should always be clear from the context, the free one-particle Hamilton operator now reads
+\begin{align*}
+  h
+  &:=
+  -
+  \Delta
+  +
+  E_{0}
+  \,.
+\end{align*}
+The constant $E_{0}$ is called the rest energy. We could have introduced this constant on $\mathcal{F}_{1}$ already which would have led to minor changes only. In fact, we could still have used the same ansatz for the ground state and only the energy would have changed to $E_{g} = -\kappa^{2} + E_{0}$ and $\kappa$ would have been given by
+\begin{align*}
+  \kappa
+  &=
+  \left(
+    \frac{\vert c \vert^{2}}{4\pi}
+    W_{0}
+    \left(
+      \frac{4\pi}{\vert c \vert^{2}}
+      \exp
+      \left(
+        \frac{4\pi}{\vert c \vert^{2}}
+        E_{0}
+        +
+        2(\ln(2) - \gamma)
+      \right)
+    \right)
+  \right)^{\frac{1}{2}}
+  \,.
+\end{align*}
+Now on the full Fock space $\mathcal{F}$ the Hamilton operator is defined as $H := \mathrm{d}\Gamma(h) + \overline{c}\mathcal{A}$ and its action (still away from the source) can sector-wise be written as
+\begin{align*}
+  (H\psi)^{n}
+  &=
+  -
+  \sum_{j = 1}^{n}
+  \Delta_{j}
+  \psi^{n}
+  +
+  nE_{0}
+  \psi^{n}
+  +
+  \overline{c}
+  (\mathcal{A}\psi)^{n}
+\end{align*}
+for $\psi \in \mathcal{F}$. The idea for the ground state $\psi_{g} \in \mathcal{F}$ now is to use the function $f_{\kappa}$ for each particle in the $n$-particle sector and write the whole $n$-particle state as a product of these functions. In each sector we thus make the ansatz
+\begin{align*}
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &=
+  A_{n}
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{c}{2\pi}
+  \right)^{n}
+  \prod_{j = 1}^{n}
+  f_{\kappa}(x_{j})
+\end{align*}
+with $A_{n} \in \mathbb{C}^{\times}$ for $n \in \mathbb{N}$ and $\kappa > 0$. The reason why the prefactor is chosen that way becomes clear when looking at the IBC
+\begin{align*}
+  \left(
+    \mathcal{B}
+    \psi_{g}
+  \right)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &=
+  2\pi
+  A_{n + 1}
+  \sqrt{n + 1}
+  \frac{1}{\sqrt{(n + 1)!}}
+  \left(
+    -
+    \frac{c}{2\pi}
+  \right)^{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  K_{0}(\kappa r)
+  \prod_{j = 1}^{n}
+  f_{\kappa}(x_{j})
+  \\
+  &=
+  -
+  c
+  \frac{A_{n + 1}}{A_{n}}
+  A_{n}
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{c}{2\pi}
+  \right)^{n}
+  (-1)
+  \prod_{j = 1}^{n}
+  f_{\kappa}(x_{j})
+  \\
+  &=
+  c
+  \frac{A_{n + 1}}{A_{n}}
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \,.
+\end{align*}
+We conclude that the IBC is satisfied by the ansatz for $A_{n + 1} = A_{n}$ and hence we write $A_{n} = A \in \mathbb{C}^{\times}$ for all $n \in \mathbb{N}$ from here on.
+\\
+Investigating the individual terms of the Hamilton operator we find that
+\begin{align*}
+  -
+  \sum_{j = 1}^{n}
+  \Delta_{j}
+  \psi_{g}^{n}
+  &=
+  -
+  \sum_{j = 1}^{n}
+  \kappa^{2}
+  \psi_{g}^{n}
+  =
+  -
+  n
+  \kappa^{2}
+  \psi_{g}^{n}
+\end{align*}
+and
+\begin{align*}
+  \overline{c}
+  (\mathcal{A}\psi_{g})^{n}
+  &=
+  -
+  \overline{c}
+  \frac{\sqrt{n + 1}}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi_{g}^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  \\
+  &=
+  \frac{\vert c \vert^{2}}{2\pi}
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{c}{2\pi}
+  \right)^{n}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  K_{0}(\kappa r)
+  \prod_{j = 1}^{n}
+  f_{\kappa}(x_{j})
+  \\
+  &=
+  -
+  \frac{\vert c \vert^{2}}{2\pi}
+  A
+  \frac{1}{\sqrt{n!}}
+  \left(
+    -
+    \frac{c}{2\pi}
+  \right)^{n}
+  \left(
+    -
+    \gamma
+    +
+    \ln(2)
+    -
+    \ln(\kappa)
+  \right)
+  \prod_{j = 1}^{n}
+  f_{\kappa}(x_{j})
+  \\
+  &=
+  \frac{\vert c \vert^{2}}{2\pi}
+  \left(
+    \gamma
+    -
+    \ln(2)
+    +
+    \ln(\kappa)
+  \right)
+  \psi_{g}^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \,.
+\end{align*}
+Summing up yields
+\begin{align*}
+  (H\psi_{g})^{n}
+  &=
+  \left(
+    n
+    (E_{0} - \kappa^{2})
+    +
+    \frac{\vert c \vert^{2}}{2\pi}
+    \left(
+      \gamma
+      -
+      \ln(2)
+      +
+      \ln(\kappa)
+    \right)
+  \right)
+  \psi_{g}^{n}
+  \,.
+\end{align*}
+From this we see that in order to satisfy the eigenvalue equation we have to require that $\kappa = \sqrt{E_{0}}$, since the prefactor on the right-hand side of this equation must not depend on $n$. Therefore, the energy of the ground state is given by
+\begin{align*}
+  E_{g}
+  &=
+  \frac{\vert c \vert^{2}}{2\pi}
+  \left(
+    \gamma
+    -
+    \ln(2)
+    +
+    \frac{1}{2}
+    \ln(E_{0})
+  \right)
+  \,.
+\end{align*}
+We again determine the constant $A$ from the normalization condition, using polar coordinates and Fubini's theorem
+\begin{align*}
+  1
+  &=
+  \vert A \vert^{2}
+  +
+  \sum_{n = 1}^{\infty}
+  \vert A \vert^{2}
+  \frac{1}{n!}
+  \left(
+    \frac{\vert c \vert^{2}}{4\pi^{2}}
+  \right)^{n}
+  \int_{\mathbb{R}^{2n}}
+  \prod_{j = 1}^{n}
+  \left(
+    f_{\sqrt{E_{0}}}(x_{j})
+  \right)^{2}
+  \mathrm{d}x_{1}
+  \dots
+  \mathrm{d}x_{n}
+  \\
+  &=
+  \vert A \vert^{2}
+  +
+  \vert A \vert^{2}
+  \sum_{n = 1}^{\infty}
+  \frac{1}{n!}
+  \left(
+    \frac{\vert c \vert^{2}}{4\pi^{2}}
+  \right)^{n}
+  \left(
+    2\pi
+    \int_{0}^{\infty}
+    r
+    K_{0}^{2}
+    \left(
+      \sqrt{E_{0}}
+      r
+    \right)
+    \mathrm{d}r
+  \right)^{n}
+  \\
+  &=
+  \vert A \vert^{2}
+  \sum_{n = 0}^{\infty}
+  \frac{1}{n!}
+  \left(
+    \frac{\vert c \vert^{2}I}{2\pi E_{0}}
+  \right)^{n}
+  \\
+  &=
+  \vert A \vert^{2}
+  \exp
+  \left(
+    \frac{\vert c \vert^{2}}{4\pi E_{0}}
+  \right)
+  \\
+  \Rightarrow
+  \qquad
+  \vert A \vert
+  &=
+  \exp
+  \left(
+    -
+    \frac{\vert c \vert^{2}}{8\pi E_{0}}
+  \right)
+  \,,
+\end{align*}
+where $I$ was defined above. Here it is obvious that for vanishing coupling the vacuum state $\psi_{\textrm{vac}} = (1,0,0,\dots) \in \mathcal{F}$ with $E_{\textrm{vac}} = 0$ is recovered up to an undetermined phase.

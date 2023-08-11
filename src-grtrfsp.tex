@@ -1,0 +1,468 @@
+As we only have the zero- and the one-particle sector here, we write $\psi = (\psi^{0},\psi^{1})$ and the model reads
+\begin{align*}
+  (H\psi)^{0}
+  &=
+  -
+  \frac{\overline{c}}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi^{1}
+  \left(
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  ,\qquad
+  (H\psi)^{1}
+  =
+  -
+  \Delta
+  \psi^{1}
+\end{align*}
+with IBC
+\begin{align*}
+  c
+  \psi^{0}
+  =
+  2\pi
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{1}
+  \left(
+    r\varphi
+  \right)
+  \,.
+\end{align*}
+To calculate the ground state for the eigenvalue equation $H\psi = E\psi$ we assume $E = E_{g} < 0$, i.e. that the ground state has negative energy $E_{g}$. $\psi^{1}$ has to solve $(\Delta + E_{g})\psi^{1} = 0$ away from the origin and we make the ansatz $\psi_{g}^{1}(x) = Af_{\kappa}(x) := Af_{\kappa,0}(x) = AK_{0}(\kappa\Vert x \Vert)$ with $\kappa > 0$ and $A \in \mathbb{C}^{\times}$. This function solves the eigenvalue equation in the one particle sector with $E_{g} = -\kappa^{2}$ as we saw above by using polar coordinates. The IBC yields
+\begin{align*}
+  \psi_{g}^{0}
+  &=
+  -
+  A
+  \frac{2\pi}{c}
+  \,,
+\end{align*}
+and the eigenvalue equation in the zero-particle sector $(H\psi)^{0} = E_{g}\psi^{0}$ demands
+\begin{align*}
+  A
+  \overline{c}
+  \left(
+    -
+    \gamma
+    +
+    \ln(2)
+    -
+    \ln(\kappa)
+  \right)
+  =
+  A\kappa^{2}
+  \frac{2\pi}{c}
+  \qquad
+  &\Leftrightarrow
+  \qquad
+  \ln(\kappa)
+  =
+  -
+  \kappa^{2}
+  \frac{2\pi}{\vert c \vert^{2}}
+  -
+  \gamma
+  +
+  \ln(2)
+  \,.
+\end{align*}
+Now $\ln(\kappa)$ is strictly increasing and $-\kappa^{2}$ is strictly decreasing for $\kappa > 0$, with $\ln(\kappa) \to \infty$ and $-\kappa^{2} \to -\infty$ as $\kappa \to \infty$. Additionally the right side of the above equation is greater than the left side for $\kappa$ small enough. Thus, there is a unique solution in $\mathbb{R}^{+}$ for this equation. In fact, the solution can be given using the so called product Lambert $W$ function (see e.g. \cite{1af276f4}) or, to be more accurate, its principal branch $W_{0}$. The result is
+\begin{align*}
+  \kappa
+  &=
+  \left(
+    \frac{\vert c \vert^{2}}{4\pi}
+    W_{0}
+    \left(
+      \frac{4\pi}{\vert c \vert^{2}}
+      \exp(2(\ln(2) - \gamma))
+    \right)
+  \right)^{\frac{1}{2}}
+  \,,
+\end{align*}
+which can easily be checked using the identity
+\begin{align*}
+  \ln(W_{0}(z))
+  &=
+  \ln(z)
+  -
+  W_{0}(z)
+  ,\qquad
+  z > 0
+  \,.
+\end{align*}
+Indeed, we find
+\begin{align*}
+  \ln(\kappa)
+  &=
+  \frac{1}{2}
+  \left(
+    \ln
+    \left(
+      \frac{\vert c \vert^{2}}{4\pi}
+    \right)
+    +
+    \ln
+    \left(
+      W_{0}
+      \left(
+        \frac{4\pi}{\vert c \vert^{2}}
+        \exp(2(\ln(2) - \gamma))
+      \right)
+    \right)
+  \right)
+  \\
+  &=
+  \frac{1}{2}
+  \left(
+    -
+    \ln
+    \left(
+      \frac{4\pi}{\vert c \vert^{2}}
+    \right)
+    +
+    \ln
+    \left(
+      \frac{4\pi}{\vert c \vert^{2}}
+      \exp(2(\ln(2) - \gamma))
+    \right)
+    -
+    W_{0}
+    \left(
+      \frac{4\pi}{\vert c \vert^{2}}
+      \exp(2(\ln(2) - \gamma))
+    \right)
+  \right)
+  \\
+  &=
+  \ln(2)
+  -
+  \gamma
+  -
+  \frac{1}{2}
+  \frac{4\pi}{\vert c \vert^{2}}
+  \frac{\vert c \vert^{2}}{4\pi}
+  W_{0}
+  \left(
+    \frac{4\pi}{\vert c \vert^{2}}
+    \exp(2(\ln(2) - \gamma))
+  \right)
+  \\
+  &=
+  \ln(2)
+  -
+  \gamma
+  -
+  \frac{2\pi}{\vert c \vert^{2}}
+  \kappa^{2}
+  \,.
+\end{align*}
+From the normalization condition we can finally deduce the constant $A$ using polar coordinates, where the angular integration can be done trivially. We find
+\begin{align*}
+  1
+  =
+  \left(
+    \psi_{g}
+    \vert
+    \psi_{g}
+  \right)_{\mathcal{F}_{1}}
+  &=
+  \overline{\psi_{g}^{0}}
+  \psi_{g}^{0}
+  +
+  \vert A \vert^{2}
+  \int_{\mathbb{R}^{2}}
+  \overline{f_{\kappa}(x)}
+  f_{\kappa}(x)
+  \mathrm{d}x
+  \\
+  &=
+  \vert A \vert^{2}
+  \frac{4\pi^{2}}{\vert c \vert^{2}}
+  +
+  2\pi
+  \vert A \vert^{2}
+  \int_{0}^{\infty}
+  r
+  K_{0}^{2}(\kappa r)
+  \mathrm{d}r
+  \\
+  &=
+  \vert A \vert^{2}
+  \frac{4\pi^{2}}{\vert c \vert^{2}}
+  +
+  \frac{2\pi}{\kappa^{2}}
+  \vert A \vert^{2}
+  I
+  \\
+  \Rightarrow
+  \qquad
+  \vert A \vert^{2}
+  &=
+  \left(
+    \frac{4\pi^{2}}{\vert c \vert^{2}}
+    +
+    \frac{2\pi}{\kappa^{2}}
+    I
+  \right)^{-1}
+  \,,
+\end{align*}
+where we substituted $z = \kappa r$ and the resulting integral is
+\begin{align*}
+  I
+  &:=
+  \int_{0}^{\infty}
+  z
+  K_{0}^{2}(z)
+  \mathrm{d}z
+  =
+  \frac{1}{2}
+  \,.
+\end{align*}
+To see this, we use the recurrence relations (see e.g. \cite{35763ba8})
+\begin{align*}
+  \mathcal{Z}_{\alpha}^{\prime}(z)
+  &=
+  \mathcal{Z}_{\alpha - 1}(z)
+  -
+  \frac{\alpha}{z}
+  \mathcal{Z}_{\alpha}(z)
+  \,,
+  \\
+  \mathcal{Z}_{\alpha}^{\prime}(z)
+  &=
+  \mathcal{Z}_{\alpha + 1}(z)
+  +
+  \frac{\alpha}{z}
+  \mathcal{Z}_{\alpha}(z)
+  \,,
+\end{align*}
+where $\mathcal{Z}_{\alpha} := \exp(\mathrm{i}\pi\alpha)K_{\alpha}$. With these relations we can calculate
+\begin{align*}
+  \left(
+    \frac{z^{2}}{2}
+    \left(
+      K_{0}^{2}(z)
+      -
+      K_{1}^{2}(z)
+    \right)
+  \right)^{\prime}
+  &=
+  z
+  \left(
+    K_{0}^{2}(z)
+    -
+    K_{1}^{2}(z)
+  \right)
+  +
+  \frac{z^{2}}{2}
+  \left(
+    K_{0}^{2}(z)
+    -
+    K_{1}^{2}(z)
+  \right)^{\prime}
+  \\
+  &=
+  z
+  \left(
+    K_{0}^{2}(z)
+    -
+    K_{1}^{2}(z)
+  \right)
+  +
+  z^{2}
+  \left(
+    K_{0}(z)
+    K_{0}^{\prime}(z)
+    -
+    K_{1}(z)
+    K_{1}^{\prime}(z)
+  \right)
+  \\
+  &=
+  z
+  \left(
+    K_{0}^{2}(z)
+    -
+    K_{1}^{2}(z)
+  \right)
+  +
+  z^{2}
+  \left(
+    -
+    K_{0}(z)
+    K_{1}(z)
+    +
+    K_{1}(z)
+    K_{0}(z)
+    +
+    \frac{1}{z}
+    K_{1}^{2}(z)
+  \right)
+  \\
+  &=
+  z
+  K_{0}^{2}(z)
+  \,.
+\end{align*}
+Now (using the relations from \cite{ca427945},\cite{69346099}),
+\begin{align*}
+  \lim_{z \to \infty}
+  z
+  K_{\alpha}(z)
+  &=
+  0
+  \,,
+  \qquad
+  \lim_{z \to 0}
+  z
+  K_{0}(z)
+  =
+  0
+  \qquad
+  \text{and}
+  \qquad
+  \lim_{z \to 0}
+  z
+  K_{1}(z)
+  =
+  1
+  \,,
+\end{align*}
+and thus
+\begin{align*}
+  I
+  &=
+  \lim_{z \to \infty}
+  \frac{z^{2}}{2}
+  \left(
+    K_{0}^{2}(z)
+    -
+    K_{1}^{2}(z)
+  \right)
+  -
+  \lim_{z \to 0}
+  \frac{z^{2}}{2}
+  \left(
+    K_{0}^{2}(z)
+    -
+    K_{1}^{2}(z)
+  \right)
+  =
+  \frac{1}{2}
+  \,.
+\end{align*}
+\\
+For vanishing coupling, $\vert c \vert \to 0$, the free vacuum state $\psi_{\textrm{vac}} = (1,0) \in \mathcal{F}_{1}$ with energy $E_{\textrm{vac}} = 0$ is recovered, up to an undetermined phase. This can be seen by using that
+\begin{align*}
+  \lim_{z \to \infty}
+  W_{0}(z)
+  &=
+  \lim_{z \to \infty}
+  \ln(z)
+  \,.
+\end{align*}
+We find
+\begin{align*}
+  \vert \psi_{g}^{0} \vert^{2}
+  &=
+  \frac{4\pi^{2}}{\vert c \vert^{2}}
+  \left(
+    \frac{4\pi^{2}}{\vert c \vert^{2}}
+    +
+    \frac{\pi}{\kappa^{2}}
+  \right)^{-1}
+  =
+  \left(
+    1
+    +
+    \frac{\vert c \vert^{2}}{4\pi}
+    \frac{1}{\kappa^{2}}
+  \right)^{-1}
+  =
+  \left(
+    1
+    +
+    \left(
+      W_{0}
+      \left(
+        \frac{4\pi}{\vert c \vert^{2}}
+        \exp(2(\ln(2) - \gamma))
+      \right)
+    \right)^{-1}
+  \right)^{-1}
+\end{align*}
+and
+\begin{align*}
+  \Vert \psi_{g}^{1} \Vert_{L^{2}}^{2}
+  &=
+  \frac{\pi}{\kappa^{2}}
+  \left(
+    \frac{4\pi^{2}}{\vert c \vert^{2}}
+    +
+    \frac{\pi}{\kappa^{2}}
+  \right)^{-1}
+  =
+  \left(
+    \frac{4\pi}{\vert c \vert^{2}}
+    \kappa^{2}
+    +
+    1
+  \right)^{-1}
+  =
+  \left(
+    W_{0}
+    \left(
+      \frac{4\pi}{\vert c \vert^{2}}
+      \exp(2(\ln(2) - \gamma))
+    \right)
+    +
+    1
+  \right)^{-1}
+  \,.
+\end{align*}
+In the limit $\vert c \vert \to 0$ we have $\alpha := \frac{4\pi}{\vert c \vert^{2}}\exp(2(\ln(2) - \gamma)) \to \infty$ and hence
+\begin{align*}
+  \lim_{\vert c \vert \to 0}
+  \vert \psi_{g}^{0} \vert^{2}
+  =
+  1
+  &,\qquad
+  \lim_{\vert c \vert \to 0}
+  \Vert \psi_{g}^{1} \Vert_{L^{2}}^{2}
+  =
+  0
+  \,.
+\end{align*}
+Finally,
+\begin{align*}
+  \lim_{\vert c \vert \to 0}
+  E_{g}
+  &=
+  -
+  \lim_{\vert c \vert \to 0}
+  \frac{\vert c \vert^{2}}{4\pi}
+  W_{0}
+  \left(
+    \frac{4\pi}{\vert c \vert^{2}}
+    \exp(2(\ln(2) - \gamma))
+  \right)
+  \\
+  &=
+  -
+  \exp(2(\ln(2) - \gamma))
+  \lim_{\alpha \to \infty}
+  \frac{\ln(\alpha)}{\alpha}
+  \\
+  &=
+  0
+  \,.
+\end{align*}
+This result is different from the one-dimensional case (cf. \cite{3d622ca2}), where the limit of the ground state is proportional to the vacuum state, but the normalization is not preserved. This one-dimensional result stems from an infrared divergence on full Fock space.

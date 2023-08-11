@@ -1,0 +1,561 @@
+\nocite{d3d4ed0b}
+%%%
+We still want to give mathematical meaning to a Hamilton operator that, in a way, captures the physical properties of $H_{\delta_{y}}$ without the need for renormalization. We do this by means of an interior-boundary condition. Following the motivation from \cite{3d622ca2} we write out the formal eigenvalue equation $H_{\delta_{y}}\psi = E\psi$ in the $n$-particle sector ($n \geq 1$)
+\begin{align}
+\label{eveq}
+  &
+  -
+  \sum_{j = 1}^{n}
+  \Delta_{j}\psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  +
+  \overline{c}
+  \sqrt{n + 1}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y
+  \right)
+  +
+  \frac{c}{\sqrt{n}}
+  \sum_{j = 1}^{n}
+  \delta_{y}(x_{j})
+  \psi^{n - 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    \hat{x}_{j}
+    ,
+    \dots,x_{n}
+  \right)
+  \\
+  &=
+  E
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \,.
+\nonumber
+\end{align}
+Here we formally wrote $\delta_{y}(x_{j})$ assuming there is a function (which is actually not true) $\delta_{y} \colon \mathbb{R}^{2} \to [-\infty,\infty]$ vanishing on $\mathbb{R}^{2} \setminus \lbrace y \rbrace$ with the property
+\begin{align*}
+  \int_{\mathbb{R}^{2}}
+  \delta_{y}(x)
+  \mathrm{d}x
+  &=
+  1
+  \,.
+\end{align*}
+Now we integrate \eqref{eveq} in\footnote{Remember that the $\psi^{n}$ are symmetric so that it does not matter which coordinate is integrated.} $x_{n} \in \mathbb{R}^{2}$ over the ball
+\begin{align*}
+  \bar{\mathbb{B}}(y,r)
+  &:=
+  \left\lbrace
+    x
+    \in
+    \mathbb{R}^{2}
+    \colon
+    \Vert
+      x
+      -
+      y
+    \Vert
+    \leq
+    r
+  \right\rbrace
+  \,,
+\end{align*}
+where $y \in \mathbb{R}^{2}$ and $r \in \mathbb{R}^{+}$. We assume that the $\psi^{n}$ for $n \in \mathbb{N}^{\times}$ are sufficiently regular in $y$, such that
+\begin{align*}
+  \int_{\bar{\mathbb{B}}(y,r)}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}x_{n}
+  \to
+  0
+  \qquad
+  \text{as}
+  \qquad
+  r
+  \downarrow
+  0
+  \,,
+\end{align*}
+but that this is not necessarily true for the derivatives. Taking the limit $r \downarrow 0$ after the integration then yields for all $x_{1},\dots,x_{n-1} \in \mathbb{R}^{2}$,
+\begin{align}
+\label{ibcbase}
+  -
+  \lim_{r \downarrow 0}
+  \int_{\bar{\mathbb{B}}(y,r)}
+  \Delta_{n}\psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}x_{n}
+  +
+  \frac{c}{\sqrt{n}}
+  \psi^{n-1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n-1}
+  \right)
+  &=
+  0
+  \,.
+\end{align}
+This equation basically describes what the creation operator does and is the foundation for our IBC. We use Gau{\ss}' theorem to rewrite the first term as
+\begin{align}
+\label{polint}
+  -
+  \int_{\bar{\mathbb{B}}(y,r)}
+  \Delta_{n}\psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  \mathrm{d}x_{n}
+  &=
+  -
+  \int_{S^{1}}
+  r
+  \partial_{r}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n-1}
+    ,
+    y
+    +
+    r
+    \varphi
+  \right)
+  \mathrm{d}\varphi
+  \,,
+\end{align}
+where we have introduced polar coordinates $(r,\varphi) \in [0,\infty) \times S^{1}$ with $S^{1} \subset \mathbb{R}^{2}$ being the $1$-sphere such that for $x \in \mathbb{R}^{2}$ we have $r = \Vert x \Vert$ and $\varphi = x/\Vert x \Vert$. Now the integral in \eqref{polint} vanishes for sufficiently regular $\psi^{n}$ in the limit $r \downarrow 0$, but we want a non-vanishing and finite result for our IBC to make sense for non-vanishing and finite $\psi^{n-1}$. Thus, we are looking for a function to add to the domain of the one-particle sector that diverges like $\ln(r)$ as $r \downarrow 0$. Still, away from $y$, this function should suffice the Schr\"odinger eigenvalue equation.
+\\
+To find such a function we write the Laplace operator in two dimensions in polar coordinates, where we assume that the function $f \colon \mathbb{R}^{2} \to \mathbb{C}$, the Laplace operator acts on, does not depend on the {\glqq}direction{\grqq}, i.e. on $\varphi$, but only on the {\glqq}distance from the source{\grqq}\footnote{This can be reasoned, e.g., from a physical point of view, as we have a rotational symmetry around the source.}, i.e. on $r$. Therefore we omit the angular part of the Laplace operator and then have
+\begin{align*}
+  \Delta f
+  &=
+  \partial_{r}^{2}
+  f
+  +
+  \frac{1}{r}
+  \partial_{r}
+  f
+  \,.
+\end{align*}
+The eigenvalue equation hence reads
+\begin{align*}
+  \partial_{r}^{2}
+  f
+  +
+  \frac{1}{r}
+  \partial_{r}
+  f
+  -
+  \kappa^{2}
+  f
+  &=
+  0
+  \,,
+\end{align*}
+where we have written the energy as $E = -\kappa^{2}$ for $\kappa > 0$, which we assume here to be the energy for the ground state. This equation resembles the modified Bessel differential equation\footnote{For more on Bessel's differential equations, the Bessel functions and the relations used here see e.g. \cite{29f54c49} and \cite{ca427945},\cite{69346099},\cite{35763ba8}.} for $z > 0$ and $g \colon (0,\infty) \to \mathbb{R}$,
+\begin{align*}
+  z^{2}
+  \partial_{z}^{2}
+  g(\kappa z)
+  +
+  z
+  \partial_{z}
+  g(\kappa z)
+  -
+  \left(
+    \kappa^{2}
+    z^{2}
+    +
+    \alpha^{2}
+  \right)
+  g(\kappa z)
+  &=
+  0
+\end{align*}
+where $\alpha \in \mathbb{R}$. Choosing $\alpha = 0$ and dividing by $z^{2}$, which is no problem, as we want the equation to hold only away from $0$, we obtain exactly the eigenvalue equation. Thus, the solutions for the modified Bessel equation with $\alpha = 0$ also solve the eigenvalue equation, as $f = f(\Vert \cdot \Vert)$. Now there are two linearly independent solutions $I_{\alpha}$ and $K_{\alpha}$ to Bessel's modified equation, but only $K_{0}$ diverges of logarithmic type as $z \downarrow 0$. So $K_{0}$ is the desired function. For this Bessel function we can write in the limit of small arguments (see e.g. \cite{69346099})
+\begin{align*}
+  K_{0}(z)
+  &=
+  -
+  \gamma
+  +
+  \ln(2)
+  -
+  \ln(z)
+  +
+  o(z)
+  \qquad
+  (z \downarrow 0)
+  \,,
+\end{align*}
+where $\gamma \approx 0.577$ is the Euler-Mascheroni constant. We thus include the functions $Af_{\kappa,y}(x) := AK_{0}(\kappa\Vert x - y \Vert)$, where $A \in \mathbb{C}$ and $\kappa > 0$, in the domain of the one-particle Hamilton operator. For these we have
+\begin{align*}
+  -
+  \lim_{r \downarrow 0}
+  \int_{S^{1}}
+  r
+  \partial_{r}
+  A
+  f_{\kappa,y}(y + r\varphi)
+  \mathrm{d}\varphi
+  &=
+  -
+  \lim_{r \downarrow 0}
+  \int_{S^{1}}
+  r
+  \partial_{r}
+  A
+  K_{0}(\kappa r)
+  \mathrm{d}\varphi
+  \\
+  &=
+  -
+  2\pi
+  A
+  \lim_{r \downarrow 0}
+  r
+  \left(
+    -
+    \frac{1}{r}
+    +
+    o(1)
+  \right)
+  =
+  2\pi
+  A
+\end{align*}
+Now note that
+\begin{align*}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  A
+  f_{\kappa,y}(y + r\varphi)
+  &=
+  -
+  A
+  \lim_{r \downarrow 0}
+  \frac{\ln(\kappa r)}{\ln(r)}
+  =
+  -
+  A
+\end{align*}
+and that for continuous $\psi^{n}$ we have
+\begin{align*}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n-1}
+    ,
+    y
+    +
+    r\varphi
+  \right)
+  &=
+  0
+  \,.
+\end{align*}
+Altogether the equality
+\begin{align*}
+  -
+  \lim_{r \downarrow 0}
+  \int_{S^{1}}
+  r
+  \partial_{r}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n-1}
+    ,
+    y
+    +
+    r
+    \varphi
+  \right)
+  \mathrm{d}\varphi
+  &=
+  -
+  2\pi
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n-1}
+    ,
+    y
+    +
+    r\varphi
+  \right)
+\end{align*}
+holds for the functions considered\footnote{the sufficiently regular functions and the $K_{0}$-functions}. We thus define an operator $\mathcal{B}$ on an appropriate dense domain $D_{\mathcal{B}} \subset \mathcal {F}$ sector-wise by
+\begin{align*}
+  (\mathcal{B}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  2\pi
+  \sqrt{n + 1}
+  \lim_{r \downarrow 0}
+  \frac{1}{\ln(r)}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y
+    +
+    r\varphi
+  \right)
+  \,.
+\end{align*}
+Looking back at equation \eqref{ibcbase} we can now state our IBC as $\mathcal{B}\psi = c\psi$.
+\\
+Now we have a problem with the definition of the annihilation operator since the functions $f_{\kappa,y}$ cannot be evaluated at $y$. To find a workaround for this note that
+\begin{align*}
+  \partial_{z}
+  \frac{1}{\ln(z)}
+  &=
+  -
+  \frac{1}{z\ln^{2}(z)}
+  \,.
+\end{align*}
+Using Lebesgue's dominated convergence theorem one hereby easily concludes that for continuously differentiable $\psi^{n}$,
+\begin{align*}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n - 1}
+    ,
+    y
+  \right)
+  &=
+  -
+  \frac{1}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n - 1}
+    ,
+    y
+    +
+    r
+    \varphi
+  \right)
+  \mathrm{d}\varphi
+  \,.
+\end{align*}
+The right-hand side of this equation is also well-defined for the functions that diverge like $f_{\kappa,y}$, which is a consequence of
+\begin{align*}
+  \lim_{z \downarrow 0}
+  \partial_{z}
+  \frac{z}{\ln(z)}
+  &=
+  \lim_{z \downarrow 0}
+  \left(
+    \frac{1}{\ln(z)}
+    -
+    \frac{1}{\ln^{2}(z)}
+  \right)
+  =
+  0
+  \,.
+\end{align*}
+Therefore, an operator $\mathcal{A}$ that captures the meaning of the annihilaton operator $a(\delta_{y})$ can be defined, on an appropriate dense domain $D_{\mathcal{A}} \subset \mathcal{F}$, sector-wise by
+\begin{align*}
+  (\mathcal{A}\psi)^{n}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+  \right)
+  &:=
+  -
+  \frac{\sqrt{n + 1}}{2\pi}
+  \lim_{r \downarrow 0}
+  r\ln^{2}(r)
+  \partial_{r}
+  \frac{1}{\ln(r)}
+  \int_{S^{1}}
+  \psi^{n + 1}
+  \left(
+    x_{1}
+    ,
+    \dots
+    ,
+    x_{n}
+    ,
+    y
+    +
+    r\varphi
+  \right)
+  \mathrm{d}\varphi
+  \,.
+\end{align*}
+Now we have a model for our two-dimensional system given by
+\begin{align*}
+  H
+  =
+  -
+  \Delta^{\mathcal{F}}
+  +
+  \overline{c}
+  \mathcal{A}
+  \qquad
+  &\text{with IBC}
+  \qquad
+  \mathcal{B}\psi
+  =
+  c
+  \psi
+  \,.
+\end{align*}
+As mentioned in the introduction the domain $D_{\textrm{IBC}}$ of $H$ is not that easy to find and even harder to handle, e.g. showing its denseness. We will only sketch here how it is given in \cite{7f9f7f95}, where the three-dimensional case is considered. We suppose that all steps can be transferred to the two-dimensional case treated here and thus replace $\mathbb{R}^{3}$ by $\mathbb{R}^{2}$ at every occurrence. Let $\Delta^{(n)} := \sum_{j = 1}^{n}\Delta_{j}$ be the Laplace operator in the $n$-th sector and let $\mathcal{C}^{n} \subset \mathbb{R}^{2n}$ denote the set of those $n$-particle configurations with at least one particle at the location of the source. The authors choose the set
+\begin{align*}
+  D(\Delta^{(n)})
+  :=
+  H_{0}^{2}
+  \left(
+    \mathbb{R}^{2n}
+    \setminus
+    \mathcal{C}^{n}
+  \right)
+  \subset
+  L^{2}(\mathbb{R}^{2n})
+\end{align*}
+as a domain for $\Delta^{(n)}$, where this set is defined as the closure of the smooth and compactly supported functions $C_{0}^{\infty}(\mathbb{R}^{2n} \setminus \mathcal{C}^{n})$ with respect to the $H^{2}$-norm. They consider the adjoint of this operator, $(\Delta^{(n)\ast},D(\Delta^{(n)\ast}))$, which extends $\Delta^{(n)}$ since the latter is densely defined, closed and symmetric. The domain of the adjoint is given by
+\begin{align*}
+  D(\Delta^{(n)\ast})
+  &=
+  D(\Delta^{(n)})
+  \oplus
+  \mathrm{ker}
+  \left(
+    \Delta^{(n)\ast}
+    -
+    \mathrm{i}
+  \right)
+  \oplus
+  \mathrm{ker}
+  \left(
+    \Delta^{(n)\ast}
+    +
+    \mathrm{i}
+  \right)
+  \,.
+\end{align*}
+In the definition of the Hamilton operator $H$ the adjoint is then used instead of the Laplace operator and the domain of $H$ is defined as
+\begin{align*}
+  D_{\textrm{IBC}}
+  &:=
+  \left\lbrace
+    \psi
+    \in
+    \mathcal{F}
+    \colon
+    \psi^{n}
+    \in
+    D(\Delta^{(n)\ast})
+    \cap
+    \mathcal{H}^{n}
+    \text{ for all }
+    n
+    \in
+    \mathbb{N}^{\times}
+    ,
+    H
+    \psi
+    \in
+    \mathcal{F}
+    ,
+    \mathcal{A}
+    \psi
+    \in
+    \mathcal{F}
+    \text{ and }
+    \mathcal{B}
+    \psi
+    =
+    c
+    \psi
+  \right\rbrace
+  \,.
+\end{align*}
+This necessarily requires that $D_{\textrm{IBC}} \subset D_{\mathcal{A}}$ and $D_{\textrm{IBC}} \subset D_{\mathcal{B}}$.
